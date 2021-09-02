@@ -1,0 +1,112 @@
+
+<header><h2> info de los autores en formato formulario, sin tag form</h2></header>
+
+<section class="bg-yellow-50" #allHTML>
+    <h4 class="text-red-900 flex justify-center items-center h-[80px]">Lista de autores</h4>
+    <!-- h-[calc(100vh-70px)] -->
+    <!-- flex justify-center items-center h-[70px] -->
+    <article>       
+        <!-- /*formato de template*/ -->
+        <ul class="bg-purple-900 grid grid-cols-4 h-[40px]"> 
+            <li class="text-white flex justify-center items-center">
+                Nombre
+            </li>
+            <li class="text-white flex justify-center items-center">
+                Apellido
+            </li>
+            <li class="text-white flex justify-center items-center">
+                Nacionalidad
+            </li>
+            <li class="text-white flex justify-center items-center">
+                Nº de libros populares
+            </li>
+        </ul>
+        <!-- /*conexión del 1º objeto.*1º dataBindin "OnewayBinding", q se LLAMA desde su clase con {{}}*/-->
+            <!-- /*meto un ngClass para darle mas logica q si un valor es distinto ccambie de color*/ -->
+        <ul class="bg-blue-600 grid grid-cols-4 h-[40px]"
+            [ngClass]="{'bg-red-400': autor1.nombre != 'Gabo'}">
+            <li class="text-white flex justify-center items-center">
+                {{autor1.nombre}}
+            </li>
+            <li class="text-white flex justify-center items-center">
+                {{autor1.apellido}}
+            </li> 
+            <li class="text-white flex justify-center items-center">
+                {{autor1.nacionalidad}}
+            </li>
+            <li class="text-white flex justify-center items-center">
+                {{autor1.nLibros}}
+            </li>
+        </ul>
+        <ul class="bg-purple-400 grid grid-cols-4 h-[40px]"
+            [ngClass]="{'bg-red-300': autor2.nombre != 'Gustavo'}">
+            <li class="text-white flex justify-center items-center">
+                {{autor2.nombre}}
+            </li>   
+            <li class="text-white flex justify-center items-center">
+                {{autor2.apellido}}
+            </li> 
+            <li class="text-white flex justify-center items-center">
+                {{autor2.nacionalidad}}
+            </li>
+            <li class="text-white flex justify-center items-center">
+                {{autor2.nLibros}}
+            </li>
+        </ul>
+        <ul class="bg-blue-600 grid grid-cols-4 h-[40px]"
+            [ngClass]="{'bg-red-300': autor3.nombre != 'Mario'}">
+            <li class="text-white flex justify-center items-center">
+                {{autor3.nombre}}
+            </li>   
+            <li class="text-white flex justify-center items-center">
+                {{autor3.apellido}}
+            </li> 
+            <li class="text-white flex justify-center items-center">
+                {{autor3.nacionalidad}}
+            </li>
+            <li class="text-white flex justify-center items-center">
+                {{autor3.nLibros}}
+            </li>
+        </ul>
+    </article>
+    <!-- formulario trae valores desde la VISTA AL CONTROLADOR -->
+    <article class= "bg-purple-200 mt-[80px] flex flex-col itms-center">
+        <div class="flex justify-evenly items-center w-full m-[20px]">
+            <div class="flex flex-col">
+                <label for="nombre" class="text-[1.1rem]">
+                    Nombre
+                </label>
+                <input type="text" id="nombre" #inputNombre
+                class="bg-blue-300 w-[160px] text-[1.1rem]">
+            </div>
+            <div class="flex flex-col">
+                <label for="apellido" class="text-[1.1rem]">
+                    Apellido
+                </label>
+                <input type="text" id="apellido" #inputApellido
+                class="bg-blue-300 w-[160px] text-[1.1rem]">
+            </div>
+            <div class="flex flex-col">
+                <label for="nacionalidad" class="text-[1.2rem]">
+                    Nacionalidad
+                </label>
+                <input type="text" id="nacionalidad" #inputNacionalidad
+                class="bg-blue-300 w-[160px] text-[1.2rem]">
+            </div>
+            <div class="flex flex-col">
+                <label for="nLibros" class="text-[1.2rem]">
+                    Nº Libros
+                </label>
+                <input type="text" id="nLibros" #inputNlibros
+                class="bg-blue-300 w-[100px] text-[1.2rem]">
+            </div>
+        </div>
+
+        <button class="bg-purple-400 ml-96 mt-50 h-[50px] w-[100px] hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" style="margin-bottom: 70px;" type="button"
+            (click)="saveAutor3(inputNombre, inputApellido, inputNacionalidad, inputNlibros)">
+            Guardar
+          </button>
+        
+                        <!-- funcion on click propia de angular=click, y parametros q esperan modificar -->
+    </article>
+</section>
